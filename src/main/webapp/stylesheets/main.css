@@ -1,0 +1,156 @@
+
+header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    background-color: #05A1FF;
+}
+
+body {
+    background-color: #C863B3;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    width: 150px;
+    border-radius: 75px;
+}
+
+.title {
+    display: flex;
+    align-items: center;
+    font-weight: bold;
+    font-size: 30px;
+    color: aliceblue;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+}
+
+header a {
+    color: aliceblue;
+    padding: 12px;
+    text-decoration: none;
+    font-size: 22px;
+    border-radius: 4px;
+}
+
+header a:hover {
+    background-color: coral;
+    color: aliceblue;
+}
+
+header a.active {
+    background-color: aliceblue;
+}
+
+table{
+    border: 1px solid #eee;
+    table-layout: fixed;
+    width: 100%;
+    margin-bottom: 20px;
+}
+table th {
+    font-weight: bold;
+    padding: 5px;
+    background: #efefef;
+    border: 1px solid #dddddd;
+}
+table td{
+    padding: 5px 10px;
+    border: 1px solid #eee;
+    text-align: left;
+}
+table tbody tr:nth-child(odd){
+    background: #fff;
+}
+table tbody tr:nth-child(even){
+    background: #F7F7F7;
+}
+
+.glow-on-hover {
+    border: none;
+    outline: none;
+    color: #fff;
+    background: #111;
+    cursor: pointer;
+    position: relative;
+    z-index: 0;
+    border-radius: 10px;
+}
+
+.glow-on-hover:before {
+    content: '';
+    background: linear-gradient(45deg, #ff0000, #ff7300, #fffb00, #48ff00, #00ffd5, #002bff, #7a00ff, #ff00c8, #ff0000);
+    position: absolute;
+    top: -2px;
+    left:-2px;
+    background-size: 400%;
+    z-index: -1;
+    filter: blur(5px);
+    width: calc(100% + 4px);
+    height: calc(100% + 4px);
+    animation: glowing 20s linear infinite;
+    opacity: 0;
+    transition: opacity .3s ease-in-out;
+    border-radius: 10px;
+}
+
+.glow-on-hover:active {
+    color: #000
+}
+
+.glow-on-hover:active:after {
+    background: transparent;
+}
+
+.glow-on-hover:disabled {
+    content: '';
+    background: linear-gradient(45deg, #ff0000, #ff7300, #fffb00, #48ff00, #00ffd5, #002bff, #7a00ff, #ff00c8, #ff0000);
+    position: absolute;
+    top: -2px;
+    left:-2px;
+    background-size: 400%;
+    z-index: -1;
+    filter: blur(5px);
+    width: calc(100% + 4px);
+    height: calc(100% + 4px);
+    animation: glowing 20s linear infinite;
+    opacity: 0;
+    transition: opacity .3s ease-in-out;
+    border-radius: 10px;
+}
+
+.glow-on-hover:hover:before {
+    opacity: 1;
+}
+
+.glow-on-hover:after {
+    z-index: -1;
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #111;
+    left: 0;
+    top: 0;
+    border-radius: 10px;
+}
+
+@keyframes glowing {
+    0% { background-position: 0 0; }
+    50% { background-position: 400% 0; }
+    100% { background-position: 0 0; }
+}
+
+input {
+    background-color: aquamarine;
+    border-radius: 10px;
+}
