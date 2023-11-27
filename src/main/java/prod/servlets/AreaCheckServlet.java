@@ -53,7 +53,7 @@ public class AreaCheckServlet extends HttpServlet {
             writer.flush();
         }
         else if (request.getParameter("action").equals("goToTable")) {
-            request.getRequestDispatcher("./points.jsp").forward(request, response);
-        }
+            response.sendRedirect("./points.jsp");
+       }
     }
 }

@@ -68,7 +68,7 @@ graph.addEventListener('click', async function () {
 });
 
 
-form.addEventListener('submit', function () {
+form.addEventListener('submit', async function () {
     event.preventDefault();
     const ycoord = document.getElementById('yCoordinate').value;
     const radius = document.getElementsByClassName('radius').item(0).getAttribute('rvalue');
@@ -93,12 +93,21 @@ form.addEventListener('submit', function () {
         alert("Y value might be in range [-5; 3]");
         return;
     }
+    const form = $('<form>', {
+        action: "controller",
+        method: "get"
+    });
 
-    const data = formData(xcoord, ycoord, radius);
-
-    data.append("action", "goToTable");
-
-    window.location.href = "controller?" + new URLSearchParams(data).toString();
+    const args = { action: "goToTable", X: xcoord, Y: ycoord, R: radius };
+    Object.entries(args).forEach(entry => {
+        const [key, value] = entry;
+        $('<input>').attr({
+            type: "hidden",
+            name: key,
+            value: value
+        }).appendTo(form);
+    });
+    form.appendTo('body').submit();
 });
 
 function formData(x, y, r) {
